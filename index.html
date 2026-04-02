@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Finwise | Intelligent Finance Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Header with Role Switcher -->
+    <header class="dashboard-header">
+      <div class="logo-area">
+        <i class="fas fa-chart-pie"></i>
+        <h1>Finwise<span>Dash</span></h1>
+        <p>Smart Financial Oversight</p>
+      </div>
+      <div class="role-control">
+        <div class="role-indicator">
+          <i class="fas fa-user-shield"></i>
+          <span>Simulated Role</span>
+        </div>
+        <select id="roleSwitcher" class="role-select">
+          <option value="admin">🔐 Administrator (Full Control)</option>
+          <option value="viewer">👁️ Viewer (Read Only)</option>
+        </select>
+        <div class="role-badge" id="roleBadge">ADMIN</div>
+      </div>
+    </header>
+
+    <!-- Summary Cards Row -->
+    <section class="summary-section">
+      <div class="summary-card">
+        <div class="card-icon"><i class="fas fa-coins"></i></div>
+        <div class="card-content">
+          <h3>Total Balance</h3>
+          <div class="amount" id="totalBalance">$0.00</div>
+        </div>
+      </div>
+      <div class="summary-card income-card">
+        <div class="card-icon"><i class="fas fa-arrow-up"></i></div>
+        <div class="card-content">
+          <h3>Total Income</h3>
+          <div class="amount income-text" id="totalIncome">$0.00</div>
+        </div>
+      </div>
+      <div class="summary-card expense-card">
+        <div class="card-icon"><i class="fas fa-arrow-down"></i></div>
+        <div class="card-content">
+          <h3>Total Expenses</h3>
+          <div class="amount expense-text" id="totalExpense">$0.00</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dual Chart Visualization -->
+    <section class="charts-row">
+      <div class="chart-widget">
+        <div class="widget-header">
+          <i class="fas fa-chart-line"></i>
+          <h3>Balance Trend (6 Months)</h3>
+        </div>
+        <canvas id="trendChart" width="400" height="200"></canvas>
+      </div>
+      <div class="chart-widget">
+        <div class="widget-header">
+          <i class="fas fa-chart-pie"></i>
+          <h3>Spending by Category</h3>
+        </div>
+        <canvas id="categoryChart" width="400" height="200"></canvas>
+      </div>
+    </section>
+
+    <!-- Transactions + Insights Two Column Layout -->
+    <section class="main-workspace">
+      <!-- Left: Transactions Panel -->
+      <div class="transactions-panel">
+        <div class="panel-header">
+          <h2><i class="fas fa-list-ul"></i> Transaction Ledger</h2>
+          <div class="filter-toolbar">
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input type="text" id="searchInput" placeholder="Search by category...">
+            </div>
+            <select id="typeFilter" class="filter-select">
+              <option value="all">All Types</option>
+              <option value="income">Income Only</option>
+              <option value="expense">Expense Only</option>
+            </select>
+            <select id="sortBy" class="filter-select">
+              <option value="date-desc">📅 Latest First</option>
+              <option value="date-asc">📅 Oldest First</option>
+              <option value="amount-desc">💰 Highest Amount</option>
+              <option value="amount-asc">💰 Lowest Amount</option>
+            </select>
+          </div>
+        </div>
+        <div id="transactionListContainer" class="transaction-list">
+          <div class="loading-placeholder"><i class="fas fa-spinner fa-pulse"></i> Loading transactions...</div>
+        </div>
+        <!-- Dynamic Add Transaction Form (Admin only) -->
+        <div id="addTransactionArea" class="add-transaction-area"></div>
+      </div>
+
+      <!-- Right: Insights Panel -->
+      <div class="insights-panel">
+        <div class="panel-header">
+          <h2><i class="fas fa-brain"></i> Financial Insights</h2>
+        </div>
+        <div id="insightsContainer" class="insights-list">
+          <div class="insight-card placeholder-card">
+            <i class="fas fa-chart-simple"></i>
+            <p>Analyzing spending patterns...</p>
+          </div>
+        </div>
+        <div class="insight-note">
+          <i class="fas fa-robot"></i> AI-driven observations based on real transactions
+        </div>
+      </div>
+    </section>
+
+    <footer class="dashboard-footer">
+      <p>© 2026 Finwise Dashboard — Role-aware interface | Data persists in session</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
