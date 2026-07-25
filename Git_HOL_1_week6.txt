@@ -1,0 +1,63 @@
+Git HOL 1 - Setup Git Configuration
+
+Based on the uploaded Git HOL.
+
+Objective
+
+-   Familiarize yourself with basic Git configuration.
+-   Configure Git with your username and email.
+-   Verify the configuration.
+
+------------------------------------------------------------------------
+
+Step 1: Check Git Installation
+
+Command git –version
+
+Explanation Checks whether Git is installed correctly and displays the
+installed version.
+
+Expected Output git version 2.xx.x.windows.x
+
+------------------------------------------------------------------------
+
+Step 2: Configure Git Username
+
+Command git config –global user.name “Your Name”
+
+Explanation Sets the global username used in all Git commits.
+
+Expected Output No output (command executes successfully).
+
+------------------------------------------------------------------------
+
+Step 3: Configure Git Email
+
+Command git config –global user.email “your_email@example.com”
+
+Explanation Sets the global email address associated with your commits.
+
+Expected Output No output.
+
+------------------------------------------------------------------------
+
+Step 4: Verify Git Configuration
+
+Command git config –global –list
+
+Explanation Displays the current global Git configuration.
+
+Expected Output user.name=Your Name user.email=your_email@example.com
+
+------------------------------------------------------------------------
+
+Summary
+
+  Command                         Purpose
+  ------------------------------- ---------------------------------
+  git –version                    Checks Git installation.
+  git config –global user.name    Sets the Git username.
+  git config –global user.email   Sets the Git email.
+  git config –global –list        Verifies the Git configuration.
+
+This completes Git HOL 1: Setup Git Configuration.

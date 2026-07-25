@@ -1,0 +1,154 @@
+Git HOL 3 - Branching and Merging
+
+Based only on the uploaded 3. Git-HOL document.
+
+Objective
+
+-   Learn Git branching.
+-   Create a branch and make changes.
+-   Merge the branch into the master/trunk.
+
+------------------------------------------------------------------------
+
+Step 1: Create a New Branch
+
+Command git branch GitNewBranch
+
+Explanation Creates a new branch named GitNewBranch.
+
+Expected Output No output.
+
+------------------------------------------------------------------------
+
+Step 2: List All Branches
+
+Command git branch -a
+
+Explanation Displays all local and remote branches. The * symbol shows
+the current branch.
+
+Expected Output
+
+    * master
+      GitNewBranch
+
+------------------------------------------------------------------------
+
+Step 3: Switch to the New Branch
+
+Command git checkout GitNewBranch
+
+Explanation Moves from the current branch to GitNewBranch.
+
+Expected Output
+
+    Switched to branch 'GitNewBranch'
+
+------------------------------------------------------------------------
+
+Step 4: Add a File
+
+Command echo “Branch Content” > branch.txt
+
+Explanation Creates a new file in the branch.
+
+Expected Output No output.
+
+------------------------------------------------------------------------
+
+Step 5: Commit the Changes
+
+Commands git add branch.txt git commit -m “Added branch.txt”
+
+Explanation Stages and commits the new file to the current branch.
+
+Expected Output A successful commit message is displayed.
+
+------------------------------------------------------------------------
+
+Step 6: Check Status
+
+Command git status
+
+Explanation Verifies that the working tree is clean.
+
+Expected Output
+
+    On branch GitNewBranch
+    nothing to commit, working tree clean
+
+------------------------------------------------------------------------
+
+Step 7: Switch to Master
+
+Command git checkout master
+
+Explanation Returns to the master branch.
+
+Expected Output
+
+    Switched to branch 'master'
+
+------------------------------------------------------------------------
+
+Step 8: View Differences
+
+Command git diff master GitNewBranch
+
+Explanation Shows the command-line differences between the two branches.
+
+------------------------------------------------------------------------
+
+Step 9: Visual Comparison
+
+Use the configured P4Merge tool to compare the master and branch
+visually.
+
+------------------------------------------------------------------------
+
+Step 10: Merge the Branch
+
+Command git merge GitNewBranch
+
+Explanation Merges the changes from GitNewBranch into master.
+
+Expected Output
+
+    Updating ...
+    Fast-forward
+     branch.txt
+
+------------------------------------------------------------------------
+
+Step 11: View Commit History
+
+Command git log –oneline –graph –decorate
+
+Explanation Displays the commit history in graph format.
+
+------------------------------------------------------------------------
+
+Step 12: Delete the Branch
+
+Command git branch -d GitNewBranch
+
+Explanation Deletes the merged branch.
+
+Expected Output
+
+    Deleted branch GitNewBranch.
+
+------------------------------------------------------------------------
+
+Summary
+
+-   git branch GitNewBranch – Create a branch.
+-   git checkout GitNewBranch – Switch to the branch.
+-   git add / git commit – Save branch changes.
+-   git checkout master – Return to master.
+-   git diff master GitNewBranch – Compare branches.
+-   git merge GitNewBranch – Merge into master.
+-   git log –oneline –graph –decorate – View history.
+-   git branch -d GitNewBranch – Delete merged branch.
+
+This completes Git HOL 3: Branching and Merging.

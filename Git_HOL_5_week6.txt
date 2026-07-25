@@ -1,0 +1,81 @@
+Git HOL 5 - Cleanup and Push to Remote Git
+
+Based only on the uploaded 5. Git-HOL document.
+
+Objective
+
+-   Learn how to clean up the local repository.
+-   Synchronize the local repository with the remote repository.
+-   Push local changes to the remote Git repository.
+
+------------------------------------------------------------------------
+
+Step 1: Verify Master is Clean
+
+Command git status
+
+Explanation Checks whether the master branch has any uncommitted changes
+before performing pull or push operations.
+
+Expected Output On branch master nothing to commit, working tree clean
+
+------------------------------------------------------------------------
+
+Step 2: List Available Branches
+
+Command git branch
+
+Explanation Displays all local branches and identifies the current
+branch with *.
+
+Expected Output * master
+
+(or * main, depending on your repository)
+
+------------------------------------------------------------------------
+
+Step 3: Pull the Latest Changes
+
+Command git pull origin master
+
+Explanation Downloads and merges the latest changes from the remote
+repository into the local master branch.
+
+Expected Output Already up to date.
+
+(or Git shows the fetched and merged changes.)
+
+------------------------------------------------------------------------
+
+Step 4: Push Local Changes
+
+Command git push origin master
+
+Explanation Uploads all committed local changes to the remote Git
+repository.
+
+Expected Output Enumerating objects… Counting objects… Writing objects…
+To https://github.com/YourUsername/GitDemo.git
+
+------------------------------------------------------------------------
+
+Step 5: Verify Changes in Remote Repository
+
+Explanation Open the remote Git repository (GitHub/GitLab) in your
+browser and verify that the latest commits and files are visible.
+
+Expected Result The latest project files and commit history are
+reflected in the remote repository.
+
+------------------------------------------------------------------------
+
+Summary
+
+-   git status – Verify the repository is clean.
+-   git branch – List available branches.
+-   git pull origin master – Get the latest remote changes.
+-   git push origin master – Upload local commits to the remote
+    repository.
+-   Verify the repository in GitHub/GitLab.
+
+This completes Git HOL 5: Cleanup and Push to Remote Git.

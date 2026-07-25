@@ -1,0 +1,170 @@
+Git HOL 4 - Merge Conflict Resolution
+
+Based only on the uploaded 4. Git-HOL document.
+
+Objective
+
+-   Learn how to resolve merge conflicts when the same file is modified
+    in different branches.
+
+------------------------------------------------------------------------
+
+Step 1: Verify Master is Clean
+
+Command git status
+
+Explanation Checks that the master branch has no pending changes.
+
+Expected Output On branch master nothing to commit, working tree clean
+
+------------------------------------------------------------------------
+
+Step 2: Create a New Branch
+
+Command git checkout -b GitWork
+
+Explanation Creates and switches to a new branch named GitWork.
+
+------------------------------------------------------------------------
+
+Step 3: Create hello.xml
+
+Command echo “Branch” > hello.xml
+
+Explanation Creates a file in the branch.
+
+------------------------------------------------------------------------
+
+Step 4: Check Status
+
+Command git status
+
+Explanation Shows hello.xml as a new untracked file.
+
+------------------------------------------------------------------------
+
+Step 5: Commit the Branch Changes
+
+Commands git add hello.xml git commit -m “Added hello.xml in GitWork”
+
+Explanation Stages and commits the file in the branch.
+
+------------------------------------------------------------------------
+
+Step 6: Switch to Master
+
+Command git checkout master
+
+Explanation Returns to the master branch.
+
+------------------------------------------------------------------------
+
+Step 7: Create hello.xml with Different Content
+
+Command echo “Master” > hello.xml
+
+Explanation Creates the same file with different content to produce a
+merge conflict later.
+
+------------------------------------------------------------------------
+
+Step 8: Commit the Master Changes
+
+Commands git add hello.xml git commit -m “Added hello.xml in master”
+
+------------------------------------------------------------------------
+
+Step 9: View Commit History
+
+Command git log –oneline –graph –decorate –all
+
+Explanation Displays the commit history of all branches.
+
+------------------------------------------------------------------------
+
+Step 10: Compare Branches
+
+Command git diff master GitWork
+
+Explanation Shows differences between the master and branch.
+
+------------------------------------------------------------------------
+
+Step 11: Visual Comparison
+
+Use the configured P4Merge tool to compare both branches visually.
+
+------------------------------------------------------------------------
+
+Step 12: Merge the Branch
+
+Command git merge GitWork
+
+Explanation Attempts to merge the branch into master.
+
+Expected Output Git reports a merge conflict because both branches
+modified hello.xml.
+
+------------------------------------------------------------------------
+
+Step 13: Resolve the Conflict
+
+Explanation Open hello.xml, resolve the conflict markers, save the file,
+then stage it.
+
+Commands git add hello.xml
+
+------------------------------------------------------------------------
+
+Step 14: Complete the Merge
+
+Command git commit -m “Resolved merge conflict”
+
+Explanation Finalizes the merge after resolving the conflict.
+
+------------------------------------------------------------------------
+
+Step 15: Ignore Backup Files
+
+Commands notepad .gitignore
+
+Add: *.bak
+
+Then:
+
+git add .gitignore git commit -m “Updated .gitignore”
+
+------------------------------------------------------------------------
+
+Step 16: List Branches
+
+Command git branch
+
+------------------------------------------------------------------------
+
+Step 17: Delete the Merged Branch
+
+Command git branch -d GitWork
+
+------------------------------------------------------------------------
+
+Step 18: View Final History
+
+Command git log –oneline –graph –decorate
+
+------------------------------------------------------------------------
+
+Summary
+
+-   git checkout -b GitWork – Create branch.
+-   git status – Verify repository state.
+-   git add / git commit – Save changes.
+-   git diff – Compare branches.
+-   git merge GitWork – Merge branch.
+-   Resolve conflict manually.
+-   git add + git commit – Complete merge.
+-   Update .gitignore.
+-   git branch -d GitWork – Delete merged branch.
+-   git log –oneline –graph –decorate – View history.
+
+This completes Git HOL 4: Merge Conflict Resolution.

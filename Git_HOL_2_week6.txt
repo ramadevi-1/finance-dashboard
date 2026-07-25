@@ -1,0 +1,96 @@
+Git HOL 2 - Implement .gitignore
+
+Based only on the uploaded Git HOL.
+
+Objective
+
+-   Understand Git Ignore.
+-   Ignore unwanted files and folders using .gitignore.
+
+------------------------------------------------------------------------
+
+Step 1: Open the Existing Git Repository
+
+Command cd GitDemo
+
+Explanation Moves into the existing Git repository.
+
+Expected Output No output.
+
+------------------------------------------------------------------------
+
+Step 2: Create a Log File
+
+Command echo “Application Log” > app.log
+
+Explanation Creates a sample log file that should later be ignored by
+Git.
+
+Expected Output No output.
+
+------------------------------------------------------------------------
+
+Step 3: Create a Log Folder
+
+Command mkdir log
+
+Explanation Creates a folder named log.
+
+Expected Output No output.
+
+------------------------------------------------------------------------
+
+Step 4: Create a .gitignore File
+
+Command notepad .gitignore
+
+Explanation Opens or creates the .gitignore file.
+
+Expected Output The editor opens.
+
+------------------------------------------------------------------------
+
+Step 5: Add Ignore Rules
+
+Content of .gitignore *.log log/
+
+Explanation - *.log ignores all files with the .log extension. - log/
+ignores the entire log folder.
+
+Save and close the file.
+
+------------------------------------------------------------------------
+
+Step 6: Verify Repository Status
+
+Command git status
+
+Explanation Checks whether Git ignores the .log files and log directory.
+
+Expected Output The ignored files and folders should not appear in the
+untracked files list. Only .gitignore (if newly created) may appear.
+
+------------------------------------------------------------------------
+
+Step 7: Commit the .gitignore File
+
+Command git add .gitignore git commit -m “Added .gitignore”
+
+Explanation Adds and commits the ignore rules.
+
+Expected Output A successful commit message is displayed.
+
+------------------------------------------------------------------------
+
+Summary
+
+  Command                            Purpose
+  ---------------------------------- ----------------------------
+  echo “Application Log” > app.log   Creates a sample log file.
+  mkdir log                          Creates a log folder.
+  notepad .gitignore                 Opens the ignore file.
+  git status                         Verifies ignored files.
+  git add .gitignore                 Stages the ignore file.
+  git commit -m “Added .gitignore”   Saves the changes.
+
+This completes Git HOL 2: Implement Git Ignore.
